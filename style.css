@@ -1,3 +1,10 @@
+/* Variables */
+:root {
+  --nav-height: 50px; /* fallback; updated by JS */
+  --nav-top: 0px; /* space above sticky nav (header height on mobile) */
+  --gap-above-sticky: 10px;
+}
+
 /* General */
 
 html {
@@ -12,9 +19,47 @@ body {
   margin: 0;
   padding-left: 40px;
   padding-right: 40px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 }
+
+/* Visually hidden utility */
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip link */
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 8px 12px;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+  z-index: 1001;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #fff;
+}
+
+/* Containers */
 
 header,
 #AboutMe,
@@ -28,7 +73,13 @@ header,
   padding-right: 30px;
 }
 
-/* Navigation */
+/* Navigation (site primary) */
+
+nav[aria-label="Primary"] {
+  position: sticky;
+  top: var(--nav-top);
+  z-index: 1000;
+}
 
 .navigation {
   display: flex;
@@ -40,9 +91,8 @@ header,
   border-radius: 8px;
   box-shadow: 0 4px 6px rgb(204 87 0 / 0.5);
   user-select: none;
-  position: sticky;
-  top: 0;
-  z-index: 998;
+  /* no sticky here; handled on the nav wrapper */
+  position: static;
 }
 
 .navigation li {
@@ -116,23 +166,24 @@ header,
 
 hr {
   border: none;
-  border-top: 2px solid #F26A20;
+  border-top: 2px solid #f26a20;
   width: 100%;
   margin: 50px 0;
   opacity: 0.25;
 }
 
-/* Tabs */
+/* Tabs Layout */
 
 .tab-container {
   display: flex;
-  flex-wrap: nowrap;    /* prevent wrapping on wide screens */
+  flex-wrap: nowrap; /* prevent wrapping on wide screens */
   gap: 20px;
   align-items: stretch; /* stretch both columns to the same height */
 }
 
+/* Tab list column */
 .tab {
-  flex: 0 0 220px;      /* fixed width for tab column */
+  flex: 0 0 220px; /* fixed width for tab column */
   display: flex;
   flex-direction: column;
   border-radius: 12px;
@@ -141,10 +192,17 @@ hr {
   background-color: #fff7f0;
   user-select: none;
   position: relative;
-  /* no fixed height */
 }
 
-.tab button {
+/* Stick the tab list under the sticky primary nav on wide screens */
+@media (min-width: 769px) {
+  .tab {
+    position: sticky;
+    top: calc(var(--nav-top) + var(--nav-height) + var(--gap-above-sticky));
+  }
+}
+
+.tab button[role="tab"] {
   background-color: transparent;
   border: none;
   padding: 18px 20px;
@@ -158,30 +216,36 @@ hr {
   outline-offset: 2px;
 }
 
-.tab button:hover,
-.tab button:focus-visible {
+.tab button[role="tab"]:hover,
+.tab button[role="tab"]:focus-visible {
   background: #d87a18;
   color: white;
   outline: none;
 }
 
-.tab button.active {
+.tab button[role="tab"].active {
   background: linear-gradient(90deg, #cc5700, #d87a18);
   color: white;
   cursor: default;
 }
 
-/* Tab content */
+/* Tab panels */
 
 .tabcontent {
-  flex: 1 1 auto;       /* fill remaining horizontal space */
+  flex: 1 1 auto; /* fill remaining horizontal space */
   background-color: white;
   padding: 25px 30px;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgb(0 0 0 / 0.07);
   transition: opacity 0.3s ease;
-  overflow-y: auto;     /* scroll if content overflows vertically */
-  /* no fixed height or min-height */
+  /* remove nested scrolling */
+  overflow: visible;
+}
+
+/* Ensure anchor jumps don't hide content under sticky UI */
+section[id],
+.tabcontent[id] {
+  scroll-margin-top: calc(var(--nav-top) + var(--nav-height) + 12px);
 }
 
 .tabcontent img {
@@ -189,14 +253,14 @@ hr {
   margin-top: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 14px rgb(242 106 32 / 0.3);
-  max-width: 100%;      /* scale down to fit container */
-  height: auto;         /* maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
 }
 
 /* Links inside tabcontent */
 
 .tabcontent a {
-  color: #F26A20;
+  color: #f26a20;
   font-weight: 600;
   text-decoration: underline;
   transition: color 0.25s ease;
@@ -209,20 +273,35 @@ hr {
   text-decoration: none;
 }
 
-/* Slideshow container */
+/* Slideshow */
+
 .slideshow-container {
   position: relative;
   margin: auto;
 }
 
-/* Slides */
+.media {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
 .slide {
   display: none;
 }
 
-/* Next & previous buttons */
-.prev,
-.next {
+.slide img,
+.slide video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0 0 0 / 0.1);
+}
+
+/* Prev/Next buttons */
+button.prev,
+button.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -232,21 +311,25 @@ hr {
   color: white;
   font-weight: bold;
   font-size: 18px;
-  transition: 0.6s ease;
+  transition: background-color 0.2s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  background-color: rgba(0 0 0 / 0.5);
+  border: none;
+  line-height: 1;
 }
 
-/* Position the "next button" to the right */
-.next {
+button.next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+button.prev:hover,
+button.next:hover,
+button.prev:focus-visible,
+button.next:focus-visible {
+  background-color: rgba(0 0 0 / 0.8);
+  outline: none;
 }
 
 /* Resume Section */
@@ -257,7 +340,7 @@ hr {
 }
 
 #Resume a {
-  color: #F26A20;
+  color: #f26a20;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -305,10 +388,10 @@ footer {
     flex: none;
     flex-direction: row;
     overflow-x: auto;
-    /* no fixed height */
+    position: static; /* don't stick on mobile */
   }
 
-  .tab button {
+  .tab button[role="tab"] {
     flex: 1 1 auto;
     text-align: center;
     border-bottom: none;
@@ -318,14 +401,13 @@ footer {
     padding: 15px;
   }
 
-  .tab button:last-child {
+  .tab button[role="tab"]:last-child {
     border-right: none;
   }
 
   .tabcontent {
     margin-top: 20px;
     border-radius: 12px;
-    /* no fixed height */
   }
 
   header {
@@ -340,7 +422,7 @@ footer {
     flex-direction: column;
     align-items: center;
     transition: padding 0.4s ease, box-shadow 0.4s ease,
-                flex-direction 0.4s ease;
+      flex-direction 0.4s ease;
   }
 
   header.shrink {
@@ -379,13 +461,17 @@ footer {
   }
 }
 
-nav[role="navigation"] {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+/* Reduced motion preference */
 
-.tab {
-  position: sticky;
-  top: 110px;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .navigation li a,
+  .tab button[role="tab"],
+  header,
+  h1,
+  .tabcontent {
+    transition: none !important;
+  }
 }

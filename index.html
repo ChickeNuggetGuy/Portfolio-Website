@@ -1,168 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Malik Hawkins Portfolio</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Malik Hawkins Portfolio</title>
-  <link href="style.css" rel="stylesheet" />
-</head>
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Portfolio of Malik Hawkins — game developer. Projects include
+      a survival game, a grid-based tactics game, an arena shooter prototype,
+      and this portfolio website."
+    />
+    <meta property="og:title" content="Malik Hawkins Portfolio" />
+    <meta
+      property="og:description"
+      content="Game developer portfolio: SunRun, Grid-based Strategy Game,
+      Arena Shooter, and Portfolio Website."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="MalikPhoto.jpeg" />
 
-<body>
-  <header onclick="scrollToTop()">
-    <div class="header-inner">
-      <h1>Malik Hawkins</h1>
-      <h2>Portfolio</h2>
-    </div>
-  </header>
+    <!-- Favicon (optional, replace with your icons) -->
+    <link rel="icon" href="favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="apple-touch-icon.png"
+    />
 
-  <nav role="navigation" aria-label="Primary navigation">
-    <ul class="navigation">
-      <li><a href="#AboutMe">About Me</a></li>
-      <li><a href="#Projects">Projects</a></li>
-      <li><a href="#Resume">Links and Resume</a></li>
-    </ul>
-  </nav>
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-  <main>
-    <section id="AboutMe" tabindex="-1" aria-labelledby="aboutme-title">
-      <h2 id="aboutme-title">About Me</h2>
-      <div class="aboutme-container">
-        <img src="MalikPhoto.jpeg" alt="Photo of Malik Hawkins" />
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div id="top"></div>
+
+    <header>
+      <div class="header-inner">
+        <a href="#top" class="to-top" aria-label="Back to top">
+          <h1>Malik Hawkins</h1>
+        </a>
+        <h2>Portfolio</h2>
+      </div>
+    </header>
+
+    <nav aria-label="Primary">
+      <ul class="navigation">
+        <li><a href="#AboutMe">About Me</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#Resume">Links and Resume</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content">
+      <section id="AboutMe" tabindex="-1" aria-labelledby="aboutme-title">
+        <h2 id="aboutme-title">About Me</h2>
+        <div class="aboutme-container">
+          <img
+            src="MalikPhoto.jpeg"
+            alt="Photo of Malik Hawkins"
+            width="320"
+            height="400"
+            loading="lazy"
+            decoding="async"
+          />
+          <p>
+            I am a passionate game developer with a love for creating
+            interactive experiences. With a background in both design and
+            development, I enjoy building engaging projects that challenge and
+            entertain players. Outside of coding, I enjoy learning new
+
+            technologies and working on creative side projects.
+          </p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="Projects" tabindex="-1" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+
+        <div class="tab-container">
+          <nav class="tab" role="tablist" aria-label="Project Tabs">
+            <button
+              class="tablinks active"
+              role="tab"
+              aria-selected="true"
+              id="tab-SunRun"
+              aria-controls="SunRun"
+              tabindex="0"
+            >
+              SunRun
+            </button>
+            <button
+              class="tablinks"
+              role="tab"
+              aria-selected="false"
+              id="tab-GridGame"
+              aria-controls="GridGame"
+              tabindex="-1"
+            >
+              Grid Game
+            </button>
+            <button
+              class="tablinks"
+              role="tab"
+              aria-selected="false"
+              id="tab-ArenaShooter"
+              aria-controls="ArenaShooter"
+              tabindex="-1"
+            >
+              Arena Shooter
+            </button>
+            <button
+              class="tablinks"
+              role="tab"
+              aria-selected="false"
+              id="tab-PortfolioWebsite"
+              aria-controls="PortfolioWebsite"
+              tabindex="-1"
+            >
+              Portfolio Website
+            </button>
+          </nav>
+
+          <div
+            class="tabcontent"
+            role="tabpanel"
+            id="SunRun"
+            aria-labelledby="tab-SunRun"
+            tabindex="-1"
+          >
+            <h3>SunRun</h3>
+            <p>
+              <strong><em>Sun Run</em></strong> is an open-world survival game
+              where players must complete dynamic objectives while staying cool
+              and avoiding the scorching summer sun. Featuring a
+              <strong><em>Multi-body-part Sun Exposure System</em></strong>,
+              players are challenged to strategically navigate the environment
+              to protect their character's health. The game includes a
+              <strong><em>Procedural Suburban House Generator</em></strong>, a
+              <strong><em>Modular Quest System</em></strong>, and integrated
+              <strong><em>Health and Stamina Mechanics</em></strong>.
+            </p>
+            <p>
+              <a
+                href="https://github.com/ChickeNuggetGuy/grid-game-new.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Git Repository</a
+              >
+              <!-- TODO: Verify this link is the intended SunRun repo -->
+            </p>
+
+            <div class="slideshow-container" data-project="SunRun">
+              <ul class="media" aria-live="off">
+                
+              </ul>
+              <button
+                type="button"
+                class="prev"
+                aria-label="Previous slide"
+                onclick="changeSlide(this, -1)"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                class="next"
+                aria-label="Next slide"
+                onclick="changeSlide(this, 1)"
+              >
+                ›
+              </button>
+              <div class="sr-only" role="status" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <div
+            class="tabcontent"
+            role="tabpanel"
+            id="GridGame"
+            aria-labelledby="tab-GridGame"
+            tabindex="-1"
+            hidden
+          >
+            <h3>Grid Based Strategy Game</h3>
+            <p>
+              <strong><em>Grid Based Strategy Game</em></strong> is a 3D,
+              grid-based, turn-based tactics game heavily inspired by the
+              original 1994 <em>X-COM</em>, built from the ground up in Godot
+              using GDScript. The game features a
+              <strong><em>Procedural Terrain Generator</em></strong> to create
+              varied battlefields, a
+              <strong><em>Custom 3D A* Pathfinding Implementation</em></strong>
+              tailored for non-flat environments, a
+              <strong><em>Grid‑based Inventory System</em></strong> with
+              decoupled data and visuals, and a
+              <strong><em>Modular Action System</em></strong> that supports
+              extendable unit abilities. It also includes a
+              <strong><em>Line-of-Sight System</em></strong> for tactical cover
+              interactions and a
+              <strong><em>Destructible Environment System</em></strong> that
+              reacts to combat decisions. Designed with scalability and
+              readability in mind, the codebase demonstrates efficient handling
+              of game logic and grid calculations without relying on heavy
+              instantiation.
+            </p>
+
+            <div class="slideshow-container" data-project="GridGame">
+              <ul class="media" aria-live="off">
+                <li class="slide" aria-hidden="false" style="display: block">
+                  <iframe
+                    width="640"
+                    height="480"
+                    src="https://www.youtube.com/embed/IucoU5etrl4"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </li>
+                <li class="slide" aria-hidden="true" style="display: none">
+                  <img
+                    src="Throwing_Grid_Game.png"
+                    alt="Grid Game: projectile throwing"
+                    width="1280"
+                    height="720"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </li>
+              </ul>
+              <button
+                type="button"
+                class="prev"
+                aria-label="Previous slide"
+                onclick="changeSlide(this, -1)"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                class="next"
+                aria-label="Next slide"
+                onclick="changeSlide(this, 1)"
+              >
+                ›
+              </button>
+              <div class="sr-only" role="status" aria-live="polite"></div>
+            </div>
+
+            <p>
+              <strong>Git Repository:</strong>
+              <a
+                href="https://github.com/ChickeNuggetGuy/Grid-Game-GDScript.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Grid Game Repository</a
+              >
+            </p>
+          </div>
+
+          <div
+            class="tabcontent"
+            role="tabpanel"
+            id="ArenaShooter"
+            aria-labelledby="tab-ArenaShooter"
+            tabindex="-1"
+            hidden
+          >
+            <h3>Arena Shooter</h3>
+            <p>
+              <strong><em>Arena Shooter</em></strong> is a fast-paced,
+              class-based prototype developed in Unreal Engine 5.6. The game
+              features <strong><em>Three Distinct Playable Classes</em></strong>
+              with unique attributes like
+              <strong><em>Rate of Fire</em></strong>,
+              <strong><em>Movement Speed</em></strong>, and
+              <strong><em>Special Abilities</em></strong>. It includes
+              <strong><em>Fully Functional AI Opponents</em></strong>, a
+              <strong><em>Complete Game Loop</em></strong>, and a
+              <strong><em>Prototype UI</em></strong> that supports player
+              feedback and class switching. This prototype emphasizes modularity
+              and balance, serving as a solid foundation for a scalable
+              competitive shooter experience.
+            </p>
+            <div class="slideshow-container" data-project="ArenaShooter">
+              <ul class="media" aria-live="off">
+                <li class="slide" aria-hidden="false" style="display: block">
+                  <iframe
+                    width="640"
+                    height="480"
+                    src="https://www.youtube.com/embed/8beOjKmt4GU"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </li>
+              </ul>
+              <button
+                type="button"
+                class="prev"
+                aria-label="Previous slide"
+                onclick="changeSlide(this, -1)"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                class="next"
+                aria-label="Next slide"
+                onclick="changeSlide(this, 1)"
+              >
+                ›
+              </button>
+              <div class="sr-only" role="status" aria-live="polite"></div>
+            </div>
+            <p>
+              <strong>Git Repository:</strong>
+              <a
+                href="https://github.com/ChickeNuggetGuy/ArenaShooter.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Arena Shooter Repository</a
+              >
+            </p>
+          </div>
+
+          <div
+            class="tabcontent"
+            role="tabpanel"
+            id="PortfolioWebsite"
+            aria-labelledby="tab-PortfolioWebsite"
+            tabindex="-1"
+            hidden
+          >
+            <h3>Portfolio Website</h3>
+            <p>
+              <strong><em>Portfolio Website</em></strong> is a fully custom
+              personal site designed and developed from scratch using HTML, CSS,
+              and JavaScript. It features
+              <strong><em>Responsive Design</em></strong>,
+              <strong><em>Semantic HTML for Accessibility</em></strong>, and an
+              <strong><em>Interactive Tab System</em></strong> to showcase
+              projects in a clean and organized layout. This site emphasizes
+              usability and showcases front-end coding proficiency.
+            </p>
+            <div class="slideshow-container" data-project="PortfolioWebsite">
+              <ul class="media" aria-live="off">
+                
+              </ul>
+              <button
+                type="button"
+                class="prev"
+                aria-label="Previous slide"
+                onclick="changeSlide(this, -1)"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                class="next"
+                aria-label="Next slide"
+                onclick="changeSlide(this, 1)"
+              >
+                ›
+              </button>
+              <div class="sr-only" role="status" aria-live="polite"></div>
+            </div>
+            <p>
+              <strong>Git Repository:</strong>
+              <a
+                href="https://github.com/ChickeNuggetGuy/Portfolio-Website.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Portfolio Website Repository</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="Resume" tabindex="-1" aria-labelledby="resume-title">
+        <h2 id="resume-title">Links and Resume</h2>
         <p>
-          I am a passionate game developer with a love for creating interactive experiences. With a background in
-          both design and development, I enjoy building engaging projects that challenge and entertain players. Outside
-          of coding, I enjoy learning new technologies and working on creative side projects.
+          <strong>LinkedIn:</strong>
+          <a
+            href="https://www.linkedin.com/in/malik-hawkins-9aa087b6/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Malik Hawkins' LinkedIn</a
+          >
         </p>
-      </div>
-    </section>
 
-    <hr />
+        <p>
+          <strong>GitHub:</strong>
+          <a
+            href="https://github.com/ChickeNuggetGuy"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Malik Hawkins' GitHub Profile</a
+          >
+        </p>
 
-    <section id="Projects" tabindex="-1" aria-labelledby="projects-title">
-      <h2 id="projects-title">Projects</h2>
-
-      <div class="tab-container">
-        <nav class="tab" role="tablist" aria-label="Project Tabs">
-          <button class="tablinks" role="tab" aria-selected="true" aria-controls="SunRun" id="tab-SunRun"
-            onclick="openTab(event, 'SunRun')">SunRun</button>
-          <button class="tablinks" role="tab" aria-selected="false" aria-controls="GridGame" id="tab-GridGame"
-            onclick="openTab(event, 'GridGame')">Grid Game</button>
-          <button class="tablinks" role="tab" aria-selected="false" aria-controls="ArenaShooter" id="tab-ArenaShooter"
-            onclick="openTab(event, 'ArenaShooter')">Arena Shooter</button>
-          <button class="tablinks" role="tab" aria-selected="false" aria-controls="PortfolioWebsite" id="tab-PortfolioWebsite"
-            onclick="openTab(event, 'PortfolioWebsite')">Portfolio Website</button>
-        </nav>
-
-        <div class="tabcontent" role="tabpanel" id="SunRun" aria-labelledby="tab-SunRun">
-          <h3>SunRun</h3>
-          <p>
-          <strong><em>Sun Run</em></strong> is an open-world survival game where players must complete dynamic objectives while staying cool and avoiding the scorching summer sun. 
-          Featuring a <strong><em>Multi-body-part Sun Exposure System</em></strong>, players are challenged to strategically navigate the environment to protect their character's health. 
-          The game includes a <strong><em>Procedural Suburban House Generator</em></strong>, a <strong><em>Modular Quest System</em></strong>, and integrated <strong><em>Health and Stamina Mechanics</em></strong>.
-          </p>
-          <!-- <img src="ChickenNuggets.jpeg" alt="Screenshot of SunRun game" /> -->
-          <p><a href="https://github.com/ChickeNuggetGuy/grid-game-new.git" target="_blank" rel="noopener noreferrer">Git Repository</a></p>
-        </div>
-
-        <div class="tabcontent" role="tabpanel" id="GridGame" aria-labelledby="tab-GridGame" hidden>
-          <h3>Grid Based Strategy Game</h3>
-          <p>
-            <strong><em>Grid Based Strategy Game</em></strong> is a 3D, grid-based, turn-based tactics game heavily inspired by the original 1994 <em>X-COM</em>,
-             built from the ground up in Godot using GDScript. The game features a <strong><em>Procedural Terrain Generator</em></strong> to create varied battlefields, 
-             a <strong><em>Custom 3D A* Pathfinding Implementation</em></strong> tailored for non-flat environments,a <strong><em></em>grid based inventory System</em></strong> with decoupled data and visuals,
-              and a <strong><em>Modular Action System</em></strong> that supports extendable unit abilities. It also includes a <strong><em>Line-of-Sight System</em></strong> for tactical cover interactions and a <strong><em>Destructible Environment System</em></strong> that reacts to combat decisions. Designed with scalability and readability in mind, the codebase demonstrates efficient handling of game logic and grid calculations without relying on heavy instantiation.
-          </p>
-          
-            <p><strong>Git Repository:</strong> <a href="https://github.com/ChickeNuggetGuy/Grid-Game-GDScript.git" target="_blank"
-          rel="noopener noreferrer">Grid Game Repository</a></p>
-        </div>
-
-        <div class="tabcontent" role="tabpanel" id="ArenaShooter" aria-labelledby="tab-ArenaShooter" hidden>
-          <h3>Arena Shooter</h3>
-          <p>
-            <strong><em>Arena Shooter</em></strong> is a fast-paced, class-based prototype developed in Unreal Engine 5.6.
-             The game features <strong><em>Three Distinct Playable Classes</em></strong> with unique attributes like <strong><em>Rate of Fire</em></strong>,
-              <strong><em>Movement Speed</em></strong>, and <strong><em>Special Abilities</em></strong>.
-               It includes <strong><em>Fully Functional AI Opponents</em></strong>, a <strong><em>Complete Game Loop</em></strong>,
-                and a <strong><em>Prototype UI</em></strong> that supports player feedback and class switching. This prototype emphasizes modularity and balance,
-                 serving as a solid foundation for a scalable competitive shooter experience.
-          </p>
-
-          <p><strong>Git Repository:</strong> <a href="https://github.com/ChickeNuggetGuy/ArenaShooter.git" target="_blank"
-          rel="noopener noreferrer">Arena Shooter Repository</a></p>
-        </div>
-
-        <div class="tabcontent" role="tabpanel" id="PortfolioWebsite" aria-labelledby="tab-PortfolioWebsite" hidden>
-  <h3>Portfolio Website</h3>
-  <p>
-    <strong><em>Portfolio Website</em></strong> is a fully custom personal site designed and developed from scratch using HTML, CSS, and JavaScript.
-    It features <strong><em>Responsive Design</em></strong>, <strong><em>Semantic HTML for Accessibility</em></strong>, and an <strong><em>Interactive Tab System</em></strong>
-    to showcase projects in a clean and organized layout. This site emphasizes usability and showcases front-end coding proficiency.
-  </p>
-  <p><strong>Git Repository:</strong> <a href="https://github.com/ChickeNuggetGuy/Portfolio-Website.git" target="_blank"
-    rel="noopener noreferrer">Portfolio Website Repository</a></p>
-</div>
-      </div>
-    </section>
-
-    <hr />
-
-    <section id="Resume" tabindex="-1" aria-labelledby="resume-title">
-      <h2 id="resume-title">Links and Resume</h2>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/malik-hawkins-9aa087b6/" target="_blank"
-          rel="noopener noreferrer">Malik Hawkins' LinkedIn</a></p>
-
-        <p><strong>GitHub:</strong> <a href="https://github.com/ChickeNuggetGuy" target="_blank"
-          rel="noopener noreferrer">Malik Hawkins' GitHub Profile</a></p>
         <p><strong>Resume PDF:</strong></p>
-        <embed src="Malik-Hawkins-Resume-Updated.pdf" type="application/pdf" width="100%" height="600px" />
-    </section>
-  </main>
+        <embed
+          src="Malik-Hawkins-Resume-Updated.pdf"
+          type="application/pdf"
+          width="100%"
+          height="600px"
+          title="Malik Hawkins Resume"
+        />
+        <p>
+          If the PDF does not display, you can
+          <a
+            href="Malik-Hawkins-Resume-Updated.pdf"
+            download
+            rel="noopener noreferrer"
+            >download it here</a
+          >.
+        </p>
+      </section>
+    </main>
 
-  <footer>
-    &copy; 2025 Malik Hawkins
-  </footer>
+    <footer>&copy; 2025 Malik Hawkins</footer>
 
-  <script>
-    function openTab(evt, tabName) {
-      const tabcontents = document.querySelectorAll(".tabcontent");
-      const tablinks = document.querySelectorAll(".tablinks");
+    <script>
+      // --- Layout variables (nav top offset and nav height) ---
+      function updateOffsets() {
+        const header = document.querySelector("header");
+        const nav = document.querySelector('nav[aria-label="Primary"]');
+        const headerStyle = window.getComputedStyle(header);
+        const headerIsSticky = headerStyle.position === "sticky";
+        const navTop = headerIsSticky ? header.offsetHeight : 0;
+        const navHeight = nav.offsetHeight || 50;
 
-      tabcontents.forEach(tc => {
-        tc.hidden = true;
+        document.documentElement.style.setProperty(
+          "--nav-top",
+          navTop + "px"
+        );
+        document.documentElement.style.setProperty(
+          "--nav-height",
+          navHeight + "px"
+        );
+      }
+
+      // --- Tabs (keyboard + activation) ---
+      function initTabs() {
+        const tablists = document.querySelectorAll('[role="tablist"]');
+        tablists.forEach((tablist) => {
+          const tabs = Array.from(
+            tablist.querySelectorAll('[role="tab"]')
+          );
+
+          // Roving tabindex setup
+          tabs.forEach((tab, i) => {
+            const selected = tab.getAttribute("aria-selected") === "true";
+            tab.tabIndex = selected || i === 0 ? 0 : -1;
+
+            tab.addEventListener("click", () => activateTab(tab));
+            tab.addEventListener("keydown", (e) => {
+              const idx = tabs.indexOf(tab);
+              let nextIdx = idx;
+
+              switch (e.key) {
+                case "ArrowRight":
+                case "ArrowDown":
+                  nextIdx = (idx + 1) % tabs.length;
+                  tabs[nextIdx].focus();
+                  e.preventDefault();
+                  break;
+                case "ArrowLeft":
+                case "ArrowUp":
+                  nextIdx = (idx - 1 + tabs.length) % tabs.length;
+                  tabs[nextIdx].focus();
+                  e.preventDefault();
+                  break;
+                case "Home":
+                  tabs[0].focus();
+                  e.preventDefault();
+                  break;
+                case "End":
+                  tabs[tabs.length - 1].focus();
+                  e.preventDefault();
+                  break;
+                case "Enter":
+                case " ":
+                  activateTab(tab);
+                  e.preventDefault();
+                  break;
+              }
+            });
+          });
+        });
+      }
+
+      function activateTab(tab) {
+        if (!tab) return;
+        const tablist = tab.closest('[role="tablist"]');
+        const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+        const panels = Array.from(
+          document.querySelectorAll('[role="tabpanel"]')
+        );
+
+        tabs.forEach((t) => {
+          t.classList.remove("active");
+          t.setAttribute("aria-selected", "false");
+          t.tabIndex = -1;
+        });
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+        tab.tabIndex = 0;
+
+        const panelId = tab.getAttribute("aria-controls");
+        panels.forEach((p) => {
+          if (p.id === panelId) {
+            p.hidden = false;
+          } else {
+            p.hidden = true;
+          }
+        });
+
+        // Update hash without scrolling jump
+        if (location.hash !== "#" + panelId) {
+          history.replaceState(null, "", "#" + panelId);
+        }
+      }
+
+      // --- Slideshow ---
+      const slideIndices = {};
+
+      function initSlideshows() {
+        const slideshows = document.querySelectorAll(
+          ".slideshow-container"
+        );
+        slideshows.forEach((slideshow) => {
+          const slides = slideshow.querySelectorAll(".slide");
+          const prevButton = slideshow.querySelector(".prev");
+          const nextButton = slideshow.querySelector(".next");
+
+          if (slides.length <= 1) {
+            if (prevButton) prevButton.style.display = "none";
+            if (nextButton) nextButton.style.display = "none";
+          }
+
+          if (slides.length > 0) {
+            const projectName = slideshow.dataset.project;
+            slideIndices[projectName] = 1;
+            showSlides(projectName, 1);
+          }
+        });
+      }
+
+      function changeSlide(btn, n) {
+        const container = btn.closest(".slideshow-container");
+        const projectName = container.dataset.project;
+        showSlides(projectName, (slideIndices[projectName] += n));
+      }
+
+      function showSlides(projectName, n) {
+        const slideshow = document.querySelector(
+          `.slideshow-container[data-project="${projectName}"]`
+        );
+        if (!slideshow) return;
+
+        const slides = Array.from(
+          slideshow.querySelectorAll(".slide")
+        );
+        if (!slides.length) return;
+
+        if (n > slides.length) {
+          slideIndices[projectName] = 1;
+        }
+        if (n < 1) {
+          slideIndices[projectName] = slides.length;
+        }
+
+        slides.forEach((slide, i) => {
+          const isActive = i === slideIndices[projectName] - 1;
+          slide.style.display = isActive ? "block" : "none";
+          slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+
+          // Pause videos in hidden slides
+          const vid = slide.querySelector("video");
+          if (vid && !isActive) {
+            vid.pause();
+          }
+        });
+
+        const status = slideshow.querySelector('[role="status"]');
+        if (status) {
+          status.textContent = `Slide ${slideIndices[projectName]} of ${
+            slides.length
+          }`;
+        }
+      }
+
+      // --- Header shrink on scroll (mobile), offsets update ---
+      function onScroll() {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("shrink");
+        } else {
+          header.classList.remove("shrink");
+        }
+        updateOffsets();
+      }
+
+      // --- Initialize on load ---
+      document.addEventListener("DOMContentLoaded", () => {
+        updateOffsets();
+        initTabs();
+        initSlideshows();
+
+        // Activate tab from hash if matches a panel id; else first tab
+        const hashId = location.hash ? location.hash.slice(1) : "";
+        const hashTab = hashId
+          ? document.querySelector(
+              `[role="tab"][aria-controls="${hashId}"]`
+            )
+          : null;
+        const firstTab = document.querySelector(
+          '[role="tablist"] [role="tab"]'
+        );
+        activateTab(hashTab || firstTab);
+
+        // Recompute offsets on resize
+        window.addEventListener("resize", updateOffsets);
+        // Shrink header + offsets on scroll
+        window.addEventListener("scroll", onScroll);
+
+        // If user changes the hash manually, activate corresponding tab
+        window.addEventListener("hashchange", () => {
+          const newHash = location.hash.slice(1);
+          const newTab = document.querySelector(
+            `[role="tab"][aria-controls="${newHash}"]`
+          );
+          if (newTab) activateTab(newTab);
+        });
       });
-      tablinks.forEach(tl => {
-        tl.setAttribute("aria-selected", "false");
-        tl.classList.remove("active");
-      });
-
-      const activeTabContent = document.getElementById(tabName);
-      activeTabContent.hidden = false;
-
-      evt.currentTarget.classList.add("active");
-      evt.currentTarget.setAttribute("aria-selected", "true");
-      activeTabContent.focus();
-    }
-
-    // Open default tab on page load
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("tab-SunRun").click();
-    });
-
-    window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  if (window.scrollY > 50) {
-    header.classList.add('shrink');
-  } else {
-    header.classList.remove('shrink');
-  }
-});
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
